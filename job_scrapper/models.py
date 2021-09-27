@@ -2,7 +2,7 @@ import datetime
 
 from sqlalchemy import create_engine, Column
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Integer, String, Date, Text
+from sqlalchemy import Integer, String, Date, Text, Boolean
 from scrapy.utils.project import get_project_settings
 
 Base = declarative_base()
@@ -36,3 +36,4 @@ class Vacancy(Base):
     link = Column('link', Text())
     platform = Column('platform', String(256))
     scrapped_at = Column(Date, default=datetime.datetime.now)
+    posted = Column(Boolean, default=False)
